@@ -1,17 +1,17 @@
 <template>
   <section class="single-book">
-    <div class="book-title">
+    <div class="title">
       <h1 v-show="shown.title" @dblclick="edit('title')">{{book.title}}</h1>
       <input v-show="!shown.title" type="text" v-model="book.title" @blur="reset" @keyup.enter="reset">
     </div>
     <div>
       <img :src="book.img" class="book-img" :alt="book.title">
     </div>
-    <div class="book-author">
+    <div class="author">
       <p v-show="shown.author" @dblclick="edit('author')">Autor: {{book.author}}</p>
       <input v-show="!shown.author" type="text" v-model="book.author" @blur="reset" @keyup.enter="reset">
     </div>
-    <div class="book-description">
+    <div class="description">
       <p v-show="shown.description" @dblclick="edit('description')">Opis: {{book.description}}</p>
       <input v-show="!shown.description" type="text" v-model="book.description" @blur="reset" @keyup.enter="reset">
     </div>
@@ -66,12 +66,12 @@
     border-radius: 5px;
 
   }
-  .book-title{
+  .title{
     color: rgba(0,0,0,.9);
     padding-top: 10px;
     padding-left: 5px;
   }
-  .book-description{
+  .description{
     color: rgba(0,0,0,.9);
     max-height: 100%;
     overflow: auto;
