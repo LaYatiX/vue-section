@@ -1,6 +1,6 @@
 <template>
-<div>
-      <h1>Książki</h1>
+<div class="master-grid">
+      <h1 class="header">Książki</h1>
   <div class="books-container">
         <Book
             v-for="book in $store.state.books"
@@ -52,9 +52,36 @@ export default {
 }
 </script>
 
+
 <style scoped>
-.books-container {
-  display: flex;
-}
+  .master-grid{
+    display:grid;
+    grid-template-rows:200px repeat(10, 300px);;
+    background-color: #EEEEEE;
+
+  }
+  .header{
+    font-size: 300%;
+    text-align: center;
+    padding-top: 5%;
+    /*grid-row-start: 1;
+    grid-row-end: 5;*/
+
+  }
+  .books-container {
+    display: grid;
+    grid-auto-flow: dense;
+    list-style: none;
+    grid-template-columns: 1fr  1fr  1fr 1fr 1fr;
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
+    align-items:stretch;
+  }
+  @media only screen and (max-width: 1029px) {
+    .books-container {
+      grid-column-gap: 2%;
+      grid-template-columns: 2fr  2fr;
+    }
+  }
 </style>
 
